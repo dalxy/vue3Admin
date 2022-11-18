@@ -10,7 +10,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "vue": "^3.2.41"
+    "element-plus": "^2.2.22",
+    "pinia": "^2.0.24",
+    "vue": "^3.2.41",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.2.0",
