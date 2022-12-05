@@ -1,13 +1,8 @@
 <template>
-  <div>
-    <router-view />
-    <Counter />
-  </div>
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
+  <router-view />
 </template>
 <script setup lang="ts">
-// import HelloWorld from "./components/HelloWorld.vue";
-import Counter from "@/components/Counter/index.vue";
+// import Layout from "@/layout/index.vue";
 </script>
 
 <style scoped></style>
