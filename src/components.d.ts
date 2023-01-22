@@ -11,7 +11,8 @@ declare module '@vue/runtime-core' {
     ElButton: typeof import('element-plus/es')['ElButton']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Siderbar: typeof import('./components/Siderbar/index.vue')['default']
+    Sidebar: typeof import('./layout/components/Sidebar/index.vue')['default']
+    Siderbar: typeof import('./layout/components/Siderbar/index.vue')['default']
     SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
   }
 }

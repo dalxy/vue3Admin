@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <div class="sidebar-container">
-      <SiderBar />
+      <siderbar />
     </div>
     <div class="main-container">
       <div class="header">
@@ -16,7 +16,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import SiderBar from "@/components/Siderbar/index.vue";
+// import SiderBar from "@/components/Siderbar/index.vue";
 </script>
 <style lang="scss" scoped>
 .app-wrapper {
