@@ -16,7 +16,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-// import SiderBar from "@/components/Siderbar/index.vue";
+// import SiderBar from "@/layout/components/Sidebar/index.vue";
 </script>
 <style lang="scss" scoped>
 .app-wrapper {
