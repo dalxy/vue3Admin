@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "vue.volar",
-    "mccarter.start-git-bash"
-  ]
+  "recommendations": ["Vue.volar"]
 }
