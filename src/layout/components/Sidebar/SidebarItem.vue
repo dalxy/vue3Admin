@@ -36,6 +36,7 @@
 import type { PropType } from "vue";
 import type { RouteRecordRaw } from "vue-router";
 import path from "path-browserify";
+import { isExternal } from "@/utils/validate";
 
 const props = defineProps({
   item: {
@@ -94,6 +95,9 @@ const icon = computed(() => {
 // 利用path.resolve 根据父路径+子路径 解析成正确路径 子路径可能是相对的
 // resolvePath在模板中使用
 const resolvePath = (childPath: string) => {
+  if (isExternal(childPath)) {
+    return childPath;
+  }
   return path.resolve(props.basePath, childPath);
 };
 </script>
