@@ -16,8 +16,9 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
             /* webpackChunkName: "documentation" */ "@/views/documentation/index.vue"
           ),
         meta: {
-          title: "documentation", // 需要配置声明文件否则无提示
-          icon: "documentation"
+          title: "Documentation", // 需要配置声明文件否则无提示
+          icon: "documentation",
+          hidden: false
         }
       }
     ]
@@ -34,7 +35,9 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
           import(/* webpackChunkName: "guide" */ "@/views/guide/index.vue"),
         meta: {
           title: "Guide",
-          icon: "guide"
+          icon: "guide",
+          // 默认加载Guide时，/documentation/index高亮显示
+          activeMenu: "/documentation/index"
         }
       }
     ]
@@ -54,7 +57,31 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
           import(/* webpackChunkName: "menu" */ "@/views/system/menu.vue"),
         meta: {
           title: "Menu Management",
-          icon: "list"
+          icon: "lock",
+          hidden: false
+        }
+      }
+    ]
+  },
+
+  {
+    path: "/system",
+    component: Layout,
+    redirect: "/system/user",
+    meta: {
+      title: "System",
+      icon: "lock",
+      alwaysShow: true
+    },
+    children: [
+      {
+        path: "menu",
+        component: () =>
+          import(/* webpackChunkName: "menu" */ "@/views/system/menu.vue"),
+        meta: {
+          title: "Menu Management",
+          icon: "lock",
+          hidden: true
         }
       },
       {
@@ -63,7 +90,8 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
           import(/* webpackChunkName: "rule" */ "@/views/system/rule.vue"),
         meta: {
           title: "Rule Management",
-          icon: "list"
+          icon: "list",
+          hidden: true
         }
       },
       {
@@ -72,7 +100,23 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
           import(/* webpackChunkName: "user" */ "@/views/system/user.vue"),
         meta: {
           title: "User Management",
-          icon: "lock"
+          icon: "lock",
+          hidden: false
+        }
+      }
+    ]
+  },
+  {
+    // 外链路由
+    path: "/external-link",
+    component: Layout,
+    children: [
+      {
+        path: "http://www.baidu.com/",
+        redirect: "/",
+        meta: {
+          title: "external Link",
+          icon: "link"
         }
       }
     ]
@@ -101,7 +145,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
   }
 ];
 
-export const routes = [...asyncRoutes, ...constantRoutes];
+export const routes = [...constantRoutes, ...asyncRoutes];
 
 export default createRouter({
   history: createWebHistory(),

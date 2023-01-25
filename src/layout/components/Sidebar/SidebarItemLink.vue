@@ -16,11 +16,10 @@ const type = computed(() => {
   if (isExt.value) {
     return "a";
   }
-  {
-    return "router-link";
-  }
+  return "router-link";
 });
 const linkProps = computed(() => {
+  console.log(props);
   if (isExt.value) {
     return {
       // a 标签的一些原生属性
@@ -30,7 +29,7 @@ const linkProps = computed(() => {
     };
   }
   return {
-    to: props
+    to: props.to
   };
 });
 </script>

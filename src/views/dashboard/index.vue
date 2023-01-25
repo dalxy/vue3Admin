@@ -4,6 +4,11 @@
     <svg-icon icon-class="bug"></svg-icon>
     <!-- icon-class svg图标名称 class-name 额外的自定义类名 @click绑定事件 -->
     <svg-icon icon-class="404" class-name="custom-class" @click="sayhi" />
+    <svg-icon icon-class="list"></svg-icon>
+    <br />
+    <br />
+    <br />
+    缓存测试<input type="text" />
     <el-button type="primary">按钮</el-button>
   </div>
 </template>

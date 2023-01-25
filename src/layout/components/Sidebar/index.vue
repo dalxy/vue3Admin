@@ -29,7 +29,11 @@ const menuRoutes = computed(() => routes);
 console.log(menuRoutes);
 const route = useRoute();
 const activeMenu = computed(() => {
-  return route.path;
+  const { path, meta } = route;
+  if (meta.activeMenu) {
+    return meta.activeMenu;
+  }
+  return path;
 });
 const isCollapse = ref(false);
 </script>

@@ -1,19 +1,22 @@
 <template>
   <div class="sidebar-item-container" v-if="!item.meta || !item.meta.hidden">
     <!-- 如果有一个孩子，或者没孩子，或者有一个孩子但是被hidden了 -->
-    <template v-if="theOnlyOneChildRoute">
-      <!-- 如果没有meta属性意味着不必渲染了 -->
-      <el-menu-item
-        :index="resolvePath(theOnlyOneChildRoute.path)"
+    <template v-if="theOnlyOneChildRoute && !alwaysShowRootMenu">
+      <sidebar-item-link
+        :to="resolvePath(theOnlyOneChildRoute.path)"
         v-if="theOnlyOneChildRoute.meta"
       >
-        <el-icon v-if="icon">
-          <svg-icon class="menu-icon" icon-class="icon" />
-        </el-icon>
-        <template #title>
-          <span>{{ theOnlyOneChildRoute.meta?.title }}</span>
-        </template>
-      </el-menu-item>
+        <!-- 如果没有meta属性意味着不必渲染了 -->
+        <el-menu-item :index="resolvePath(theOnlyOneChildRoute.path)">
+          <!-- v-if="theOnlyOneChildRoute.meta" -->
+          <el-icon v-if="icon">
+            <svg-icon class="menu-icon" :icon-class="icon" />
+          </el-icon>
+          <template #title>
+            <span>{{ theOnlyOneChildRoute.meta?.title }}</span>
+          </template>
+        </el-menu-item>
+      </sidebar-item-link>
     </template>
     <!-- 多个子路由时 -->
     <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
@@ -50,6 +53,10 @@ const props = defineProps({
   }
 });
 
+const alwaysShowRootMenu = computed(
+  () => props.item.meta && props.item.meta.alwaysShow
+);
+
 // 渲染菜单主要先看子路由
 // 比如我们的路由 一级路由一般都是layout组件 二级路由才是我们考虑要渲染成菜单的
 const showingChildNumber = computed(() => {
@@ -63,7 +70,10 @@ const showingChildNumber = computed(() => {
 // 要渲染的单个路由 如果该路由只有一个子路由 默认直接渲染这个子路由
 // theOnlyOneChildRoute直接通过el-menu-item组件来渲染
 const { item } = toRefs(props);
-const theOnlyOneChildRoute = computed(() => {
+// const theOnlyOneChildRoute = computed(() => {
+const theOnlyOneChildRoute = computed<
+  (RouteRecordRaw & { noShowingChildren?: boolean }) | null
+>(() => {
   // 多个children时 直接return null 多children需要用el-submenu来渲染并递归
   if (showingChildNumber.value > 1) {
     return null;
@@ -81,7 +91,8 @@ const theOnlyOneChildRoute = computed(() => {
   // 无可渲染chiildren时 把当前路由item作为仅有的子路由渲染
   return {
     ...props.item,
-    path: "" // resolvePath避免resolve拼接时 拼接重复
+    path: "", // resolvePath避免resolve拼接时 拼接重复
+    noShowingChildren: true //无可渲染的children
   };
 });
 // menu icon
