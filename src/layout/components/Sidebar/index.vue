@@ -37,6 +37,6 @@ const route = useRoute();
 const activeMenu = computed(() => {
   return route.path;
 });
-const isCollapse = ref(false);
+// const isCollapse = ref(false);
 </script>
 <style></style>
