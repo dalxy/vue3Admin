@@ -5,7 +5,7 @@
     </div>
     <div class="main-container">
       <div class="header">
-        <div class="navbar">navbar</div>
+        <navbar></navbar>
         <div class="tags-view">tagsview</div>
       </div>
       <!-- <div class="app-main">
@@ -29,10 +29,10 @@ import SiderBar from "@/layout/components/Sidebar/index.vue";
     display: flex;
     flex-direction: column;
     .header {
-      background: cyan;
+      // background: cyan;
       .navbar {
         height: 50px;
-        background: #1890ff;
+        // background: #1890ff;
       }
       .tags-view {
         height: 34px;

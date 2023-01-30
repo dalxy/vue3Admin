@@ -16,11 +16,17 @@ import "virtual:svg-icons-register"; // 不能有空格
 // 注册element-plus
 import installElementPlus from "./plugins/element";
 
+// pinia持久化
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
+
 createApp(App)
   .use(ElementPlus)
   // 安装element-plus插件
   .use(installElementPlus)
   .use(router)
-  .use(createPinia())
+  // .use(createPinia())
   .use(initSvgIcon)
+  .use(pinia)
   .mount("#app");
