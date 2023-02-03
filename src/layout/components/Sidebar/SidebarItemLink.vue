@@ -19,7 +19,7 @@ const type = computed(() => {
   return "router-link";
 });
 const linkProps = computed(() => {
-  console.log(props);
+  // console.log(props);
   if (isExt.value) {
     return {
       // a 标签的一些原生属性
