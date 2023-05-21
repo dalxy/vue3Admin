@@ -85,6 +85,26 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: "/test", //此组件作为一级路由
+    redirect: "test/index.vue",
+    component: Layout,
+    children: [
+      {
+        path: "index",
+        name: "Test",
+        component: () =>
+          import(
+            /* webpackChunkName: "documentation" */ "@/views/test/index.vue"
+          ),
+        meta: {
+          title: "Test", // 需要配置声明文件否则无提示
+          icon: "documentation",
+          hidden: false
+        }
+      }
+    ]
+  },
+  {
     // 外链路由
     path: "/external-link",
     component: Layout,

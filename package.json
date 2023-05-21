@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/path-browserify": "^1.0.0",
+    "axios": "^1.4.0",
     "element-plus": "^2.2.22",
     "normalize.css": "^8.0.1",
     "path-browserify": "^1.0.1",
