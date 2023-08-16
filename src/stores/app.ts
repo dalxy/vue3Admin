@@ -8,7 +8,7 @@ export const useAppStore = defineStore(
     const state = reactive({
       siderbar: {
         // sidebar 展开状态
-        opened: true
+        opened: false
       },
       size: "default"
     });
