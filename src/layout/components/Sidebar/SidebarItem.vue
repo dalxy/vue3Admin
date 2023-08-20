@@ -1,4 +1,5 @@
 <template>
+  <!-- <div>111</div> -->
   <div class="sidebar-item-container" v-if="!item.meta || !item.meta.hidden">
     <!-- 如果有一个孩子，或者没孩子，或者有一个孩子但是被hidden了 -->
     <template v-if="theOnlyOneChildRoute && !alwaysShowRootMenu">
