@@ -11,6 +11,7 @@
       <el-tooltip content="Global Size" effect="dark" placement="bottom">
         <SizeSelect></SizeSelect>
       </el-tooltip>
+      <avatar />
     </div>
   </div>
 </template>
