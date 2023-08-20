@@ -9,8 +9,6 @@ import { useAppStore } from "./stores/app";
 import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 const store = useAppStore();
 const { size } = storeToRefs(store);
-console.log(size);
-// const size:any = "small";
-// console.log(zhCn);
+// console.log(size);
 </script>
 <style scoped></style>

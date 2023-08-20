@@ -10,7 +10,7 @@ export const useAppStore = defineStore(
         // sidebar 展开状态
         opened: false
       },
-      size: "default"
+      size: "default" as Size
     });
     const sidebar = computed(() => state.siderbar);
     const size = computed(() => state.size);

@@ -20,27 +20,47 @@ import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 
-registerMicroApps([
+import Avatar from "@/components/Avatar/index.vue";
+import Breadcrumb from "@/components/Breadcrumb/index.vue";
+import Hambuger from "@/components/Hambuger/index.vue";
+
+const shareComponent = {
+  Avatar,
+  Breadcrumb,
+  Hambuger
+};
+
+const apps = [
   {
-    name: "vue app", // app name registered
-    entry: "//localhost:7100",
-    container: "#yourContainer",
-    activeRule: "/yourActiveRule"
+    name: "vueApp",
+    entry: "//localhost:10001",
+    container: "#vue",
+    activeRule: "/vue",
+    props: {
+      ...shareComponent
+    }
   },
   {
-    name: "vue app",
-    entry: { scripts: ["//localhost:7100/main.js"] },
-    container: "#yourContainer2",
-    activeRule: "/yourActiveRule2"
+    name: "reactApp",
+    entry: "//localhost:20000",
+    container: "#react",
+    activeRule: "/react"
   }
-]);
-start();
+];
+
+registerMicroApps(apps);
+start({
+  prefetch: false,
+  sandbox: {
+    // experimentalStyleIsolation: true,
+    // strictStyleIsolation: true,
+  }
+});
 createApp(App)
   .use(ElementPlus)
   // 安装element-plus插件
   .use(installElementPlus)
   .use(router)
-  // .use(createPinia())
   .use(initSvgIcon)
   .use(pinia)
   .mount("#app");
