@@ -20,11 +20,8 @@ export const useAppStore = defineStore(
     // actions
     const toggleSidebar = () => {
       state.siderbar.opened = !state.siderbar.opened;
-      // console.log(sidebar.opened);
     };
     // 需要导出响应式数据，persist 插件才会存储
-    // console.log(sidebar);
-
     return { state, sidebar, toggleSidebar, setSize, size };
   },
   {
