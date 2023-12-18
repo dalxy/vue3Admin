@@ -16,7 +16,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
             /* webpackChunkName: "documentation" */ "@/views/documentation/index.vue"
           ),
         meta: {
-          title: "Documentation", // 需要配置声明文件否则无提示
+          title: "文档", // 需要配置声明文件否则无提示
           icon: "documentation",
           hidden: false
         }
@@ -34,7 +34,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         component: () =>
           import(/* webpackChunkName: "guide" */ "@/views/guide/index.vue"),
         meta: {
-          title: "Guide",
+          title: "导航",
           icon: "guide"
           // 默认加载Guide时，/documentation/index高亮显示
           // activeMenu: "/documentation/index"
@@ -47,7 +47,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     component: Layout,
     redirect: "/system/user",
     meta: {
-      title: "System",
+      title: "系统",
       icon: "lock",
       alwaysShow: true
     },
@@ -97,7 +97,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
             /* webpackChunkName: "documentation" */ "@/views/test/index.vue"
           ),
         meta: {
-          title: "Test", // 需要配置声明文件否则无提示
+          title: "测试", // 需要配置声明文件否则无提示
           icon: "documentation",
           hidden: false
         }
@@ -113,7 +113,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         path: "http://www.baidu.com/",
         redirect: "/",
         meta: {
-          title: "external Link",
+          title: "外链",
           icon: "link"
         }
       }
@@ -135,7 +135,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
             /* webpackChunkName: "dashboard" */ "@/views/dashboard/index.vue"
           ),
         meta: {
-          title: "Dashboard", // 需要配置声明文件否则无提示
+          title: "首页", // 需要配置声明文件否则无提示
           icon: "dashboard"
         }
       }

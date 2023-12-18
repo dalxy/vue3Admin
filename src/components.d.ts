@@ -24,6 +24,7 @@ declare module '@vue/runtime-core' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     Hambuger: typeof import('./components/Hambuger/index.vue')['default']
+    ImgCutter: typeof import('./components/ImgCutter/index.vue')['default']
     Navbar: typeof import('./layout/components/Navbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
