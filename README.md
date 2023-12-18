@@ -17,3 +17,7 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 pre需求
 <https://blog.csdn.net/winkexin/article/details/130747420>
+
+需要学的内容：
+@vueuse
+element.__resizeListeners__

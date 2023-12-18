@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@types/path-browserify": "^1.0.0",
+    "@vueuse/core": "^7.5.3",
     "axios": "^1.4.0",
     "element-plus": "^2.2.22",
     "normalize.css": "^8.0.1",

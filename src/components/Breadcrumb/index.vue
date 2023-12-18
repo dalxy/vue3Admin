@@ -44,7 +44,7 @@ const getBreadcrumb = () => {
         {
           path: "/dashboard",
           meta: {
-            title: "Dashboard"
+            title: "首页"
           }
         }
       ] as PartialRouteLocationMatched[]
