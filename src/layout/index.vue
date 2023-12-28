@@ -20,7 +20,7 @@
 </template>
 <script lang="ts" setup>
 import SiderBar from "@/layout/components/Sidebar/index.vue";
-import TagView from "@/layout/components/tagView/index.vue"
+import TagView from "@/layout/components/tagView/index.vue";
 </script>
 <style lang="scss" scoped>
 .app-wrapper {
