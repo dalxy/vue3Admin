@@ -1,9 +1,3 @@
-<template>
-  <div>
-    <h1>test</h1>
-  </div>
-</template>
-<script lang="ts" setup>
 const b = [
   {
     id: 82567,
@@ -302,6 +296,7 @@ const b = [
     ]
   }
 ];
+
 interface WorkTimeCheckItem {
   workTimeCode: string;
   count: string;
@@ -355,4 +350,3 @@ const convertedArrayA: EventOrderCheckItem[] = convertBToA(b);
 
 // 输出转换后的结果
 console.log(convertedArrayA);
-</script>
