@@ -53,6 +53,5 @@ aaa.forEach((item) => {
   });
 });
 
-console.log(aaa, 'aaaaaaaaa');
-
+console.log(aaa, "aaaaaaaaa");
 </script>
