@@ -6,7 +6,9 @@
     <div class="main-container">
       <div class="header">
         <navbar></navbar>
-        <div class="tags-view">tagsview</div>
+        <div class="tags-view">
+          <TagView />
+        </div>
       </div>
       <!-- <div class="app-main">
         <h2>app main</h2>
@@ -18,6 +20,7 @@
 </template>
 <script lang="ts" setup>
 import SiderBar from "@/layout/components/Sidebar/index.vue";
+import TagView from "@/layout/components/tagView/index.vue"
 </script>
 <style lang="scss" scoped>
 .app-wrapper {
