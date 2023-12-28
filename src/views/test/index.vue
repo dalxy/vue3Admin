@@ -1,9 +1,11 @@
 <template>
   <div>
     <h1>test</h1>
+    <test2></test2>
   </div>
 </template>
 <script lang="ts" setup>
+import test2 from "./test2/index.vue";
 const b = [
   {
     id: 82567,
