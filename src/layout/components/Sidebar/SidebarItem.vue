@@ -20,7 +20,7 @@
       </sidebar-item-link>
     </template>
     <!-- 多个子路由时 -->
-    <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
+    <el-sub-menu v-else :index="resolvePath(item.path)">
       <template #title>
         <el-icon v-if="item.meta?.icon">
           <svg-icon class="menu-icon" :icon-class="item.meta.icon"></svg-icon>
