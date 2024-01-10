@@ -26,6 +26,7 @@ import { storeToRefs } from "pinia";
 const store = useTagsView();
 const { visitedViews } = storeToRefs(store);
 const route = useRoute();
+const router = useRouter();
 // 从store里获取 可显示的tags view
 // 添加tag
 const addTags = () => {
@@ -49,6 +50,28 @@ const isActive = (tag: RouteLocationNormalized) => {
 // 关闭当前右键的tag路由
 const closeSelectedTag = (view: RouteLocationNormalized) => {
   store.delView(view);
+  if (isActive(view)) {
+    toLastView(visitedViews.value, view);
+  }
+};
+const toLastView = (
+  visitedViews: RouteLocationNormalized[],
+  view: RouteLocationNormalized
+) => {
+  // 得到集合中最后一个项tag view 可能没有
+  const latestView = visitedViews[visitedViews.length - 1];
+  if (latestView) {
+    router.push(latestView);
+  } else {
+    // 集合中都没有tag view时
+    // 如果刚刚删除的正是Dashboard 就重定向回Dashboard（首页）
+    if (view.name === "Dashboard") {
+      router.push({ path: view.path });
+    } else {
+      // tag都没有了 删除的也不是Dashboard 只能跳转首页
+      router.push({ path: "/" });
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
