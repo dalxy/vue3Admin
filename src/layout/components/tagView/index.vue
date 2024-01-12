@@ -10,7 +10,7 @@
         :to="{ path: tag.path, query: tag.query }"
       >
         <span>{{ tag.meta.title }}</span>
-        <el-icon class="icon-close">
+        <el-icon class="icon-close" v-if="!isAffix(tag)">
           <CloseBold @click.prevent.stop="closeSelectedTag(tag)" />
         </el-icon>
       </router-link>
@@ -22,6 +22,9 @@ import { useTagsView } from "@/stores/tagsView";
 import { RouteLocationNormalized } from "vue-router";
 import { CloseBold } from "@element-plus/icons-vue";
 import { storeToRefs } from "pinia";
+import { RouteRecordRaw } from "vue-router";
+import path from "path-browserify";
+import { routes } from "@/router";
 
 const store = useTagsView();
 const { visitedViews } = storeToRefs(store);
@@ -42,6 +45,40 @@ watch(
   },
   { immediate: true }
 );
+const fillterAffixTags = (routes: RouteRecordRaw[], basePath = "/") => {
+  let tags: RouteLocationNormalized[] = [];
+  routes.forEach((route) => {
+    if (route.meta && route.meta.affix) {
+      // 把路由路径解析成完整路径，路由可能是相对路径
+      const tagPath = path.resolve(basePath, route.path);
+      tags.push({
+        path: tagPath,
+        name: route.name,
+        meta: { ...route.meta }
+      } as RouteLocationNormalized);
+    }
+
+    // 深度优先遍历 子路由（子路由路径可能相对于route.path父路由路径）
+    if (route.children) {
+      const childTags = fillterAffixTags(route.children, route.path);
+      if (childTags.length) {
+        tags = [...tags, ...childTags];
+      }
+    }
+  });
+  return tags;
+};
+onMounted(() => {
+  initTags();
+});
+const initTags = () => {
+  const affixTags = fillterAffixTags(routes);
+  for (const tag of affixTags) {
+    if (tag.name) {
+      store.addView(tag);
+    }
+  }
+};
 
 // 是否是当前应该激活的tag
 const isActive = (tag: RouteLocationNormalized) => {
@@ -72,6 +109,9 @@ const toLastView = (
       router.push({ path: "/" });
     }
   }
+};
+const isAffix = (tag: RouteLocationNormalized) => {
+  return tag.meta && tag.meta.affix;
 };
 </script>
 <style lang="scss" scoped>
