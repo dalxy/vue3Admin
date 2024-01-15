@@ -140,7 +140,8 @@ const constantRoutes: Array<RouteRecordRaw> = [
         meta: {
           title: "首页", // 需要配置声明文件否则无提示
           icon: "dashboard",
-          affix: true // 固定标签
+          affix: true, // 固定标签
+          noCache: true // 不缓存
         }
       }
     ]

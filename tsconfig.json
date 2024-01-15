@@ -5,7 +5,10 @@
       "@/*": ["src/*"]
     },
     "target": "ESNext",
-    "types": ["element-plus/global"],
+    "types": [
+      "element-plus/global",
+      "unplugin-vue-define-options/macros-global"
+    ],
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "Node",
