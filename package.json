@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "vite --mode dev",
-    "test": "vite --mode test",
+    "serve:dev": "vite --mode dev",
+    "serve:test": "vite --mode test",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint --fix --ext .ts,.tsx,.vue src --quiet",
