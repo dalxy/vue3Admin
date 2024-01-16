@@ -44,7 +44,7 @@
 <script lang="ts" setup>
 import { useTagsView } from "@/stores/tagsView";
 import { RouteLocationNormalized } from "vue-router";
-import { CloseBold, View } from "@element-plus/icons-vue";
+import { CloseBold } from "@element-plus/icons-vue";
 import { storeToRefs } from "pinia";
 import { RouteRecordRaw } from "vue-router";
 import path from "path-browserify";
