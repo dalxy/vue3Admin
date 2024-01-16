@@ -13,6 +13,9 @@
   </div>
 </template>
 <script lang="ts" setup>
+defineOptions({
+  name: "Dashboard"
+});
 // import { getCurrentInstance } from "vue";
 const { proxy } = getCurrentInstance()!;
 const sayhi = () => {

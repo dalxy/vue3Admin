@@ -10,33 +10,45 @@ export const useTagsView = defineStore("tag", () => {
         title: view.meta.title || "tag-name"
       })
     );
-    addCacheView(view);
+    addCachedView(view);
   };
   const delView = (view: RouteLocationNormalizedLoaded) => {
     const i = visitedViews.value.indexOf(view);
     if (i > -1) {
       visitedViews.value.splice(i, 1);
     }
-    delCacheView(view);
+    delCachedView(view);
   };
   const cachedViews = ref<RouteRecordName[]>([]);
-  const addCacheView = (view: RouteLocationNormalizedLoaded) => {
+  const addCachedView = (view: RouteLocationNormalizedLoaded) => {
     if (cachedViews.value.includes(view.name!)) return;
     if (!view.meta.noCache) {
       cachedViews.value.push(view.name!);
     }
   };
-  const delCacheView = (view: RouteLocationNormalizedLoaded) => {
+  const delCachedView = (view: RouteLocationNormalizedLoaded) => {
     // 删除缓存
     const index = cachedViews.value.indexOf(view.name!);
     index > -1 && cachedViews.value.splice(index, 1);
+  };
+  const delAllView = () => {
+    visitedViews.value = visitedViews.value.filter((tag) => tag.meta.affix);
+    cachedViews.value = [];
+  };
+  const delOtherViews = (view: RouteLocationNormalizedLoaded) => {
+    visitedViews.value = visitedViews.value.filter(
+      (tag) => tag.meta.affix || tag.path === view.path
+    );
+    cachedViews.value = cachedViews.value.filter((name) => name !== view.name);
   };
   return {
     visitedViews,
     addView,
     delView,
-    cachedViews
-    // addCacheView,
-    // delCacheView
+    cachedViews,
+    delAllView,
+    delOtherViews,
+    addCachedView,
+    delCachedView
   };
 });
