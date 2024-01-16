@@ -11,6 +11,7 @@
 </template>
 <script lang="ts" setup>
 const route = useRoute();
+console.log(111);
 </script>
 <style scoped>
 .app-main {
