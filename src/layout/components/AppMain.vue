@@ -13,6 +13,7 @@
 import { useTagsView } from "@/stores/tagsView";
 import { storeToRefs } from "pinia";
 const route = useRoute();
+
 const store = useTagsView();
 
 const { cachedViews } = storeToRefs(store);
