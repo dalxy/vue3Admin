@@ -54,6 +54,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: "menu",
+        name: "Menu Management",
         component: () =>
           import(/* webpackChunkName: "menu" */ "@/views/system/menu.vue"),
         meta: {
@@ -64,6 +65,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
       },
       {
         path: "rule",
+        name: "Rule Management",
         component: () =>
           import(/* webpackChunkName: "rule" */ "@/views/system/rule.vue"),
         meta: {
@@ -74,6 +76,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
       },
       {
         path: "user",
+        name: "User Management",
         component: () =>
           import(/* webpackChunkName: "user" */ "@/views/system/user.vue"),
         meta: {
@@ -137,7 +140,8 @@ const constantRoutes: Array<RouteRecordRaw> = [
         meta: {
           title: "首页", // 需要配置声明文件否则无提示
           icon: "dashboard",
-          affix: true // 固定标签
+          affix: true, // 固定标签
+          noCache: true // 不缓存
         }
       }
     ]

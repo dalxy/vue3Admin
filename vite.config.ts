@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import path from "path";
 import vue from "@vitejs/plugin-vue";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import DefineOptions from "unplugin-vue-define-options/vite";
 
 // 按需使用element-plus
 // 自动导入
@@ -13,6 +14,7 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 export default defineConfig({
   plugins: [
     vue(),
+    DefineOptions(),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), "src/icons/svg")], // icon存放目录
       symbolId: "icon-[name]", // symbol的id
@@ -44,7 +46,7 @@ export default defineConfig({
   // 配置前端服务地址和端口
   server: {
     host: "0.0.0.0", //自定义主机名
-    port: 8080, //自定义端口
+    port: 8010, //自定义端口
     // 是否开启 https
     https: false
   }
