@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElDrawer: typeof import('element-plus/es')['ElDrawer']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
@@ -27,6 +28,7 @@ declare module '@vue/runtime-core' {
     Hambuger: typeof import('./components/Hambuger/index.vue')['default']
     ImgCutter: typeof import('./components/ImgCutter/index.vue')['default']
     Navbar: typeof import('./layout/components/Navbar.vue')['default']
+    RightPanel: typeof import('./components/RightPanel/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Screenfull: typeof import('./components/Screenfull/index.vue')['default']
@@ -37,5 +39,6 @@ declare module '@vue/runtime-core' {
     SizeSelect: typeof import('./components/SizeSelect/index.vue')['default']
     SvgIcon: typeof import('./components/SvgIcon/index.vue')['default']
     TagsView: typeof import('./layout/components/TagsView/index.vue')['default']
+    ThemePicker: typeof import('./components/ThemePicker/index.vue')['default']
   }
 }
