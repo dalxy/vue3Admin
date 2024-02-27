@@ -61,7 +61,7 @@ const settingsPanelWidth = computed(() => variables.settingPanelWidth);
     .app-main {
       /* main = 100% - nabvar + tagsview */
       min-height: calc(100vh - 85px); //运算符号两边必须有空格
-      background: red;
+      // background: red;
     }
   }
 }

@@ -74,8 +74,8 @@ devDependencies:
     specifier: ^7.0.0
     version: registry.npmmirror.com/@vue/eslint-config-prettier@7.1.0(eslint@8.48.0)(prettier@2.8.8)
   ant-design-vue:
-    specifier: 3.0.0-beta.7
-    version: 3.0.0-beta.7(@vue/compiler-sfc@3.4.13)(vue@3.3.4)
+    specifier: 4.1.2
+    version: 4.1.2(vue@3.3.4)
   eslint:
     specifier: ^8.27.0
     version: registry.npmmirror.com/eslint@8.48.0
@@ -143,6 +143,16 @@ packages:
       '@ant-design/icons-svg': 4.3.2
       '@types/lodash': 4.14.197
       lodash: 4.17.21
+      vue: registry.npmmirror.com/vue@3.3.4
+    dev: true
+
+  /@ant-design/icons-vue@7.0.1(vue@3.3.4):
+    resolution: {integrity: sha512-eCqY2unfZK6Fe02AwFlDHLfoyEFreP6rBwAZMIJ1LugmfMiVgwWDYlp1YsRugaPtICYOabV1iWxXdP12u9U43Q==}
+    peerDependencies:
+      vue: '>=3.0.3'
+    dependencies:
+      '@ant-design/colors': 6.0.0
+      '@ant-design/icons-svg': 4.3.2
       vue: registry.npmmirror.com/vue@3.3.4
     dev: true
 
@@ -219,6 +229,14 @@ packages:
     dependencies:
       vue: registry.npmmirror.com/vue@3.3.4
     dev: false
+
+  /@emotion/hash@0.9.1:
+    resolution: {integrity: sha512-gJB6HLm5rYwSLI6PQa+X1t5CFGrv1J1TWG+sOyMCeKz2ojaj6Fnl/rZEspogG+cvqbt4AE/2eIyD2QfLKTBNlQ==}
+    dev: true
+
+  /@emotion/unitless@0.8.1:
+    resolution: {integrity: sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==}
+    dev: true
 
   /@esbuild/android-arm@0.15.18:
     resolution: {integrity: sha512-5GT+kcs2WVGjVs7+boataCkO5Fg0y4kCjzkB5bAip7H4jfnOS3dA6KPiww9W1OEKTKeAcUVhdZGvgI65OXmUnw==}
@@ -407,19 +425,22 @@ packages:
     hasBin: true
     dev: true
 
-  /ant-design-vue@3.0.0-beta.7(@vue/compiler-sfc@3.4.13)(vue@3.3.4):
-    resolution: {integrity: sha512-8ay9+AnleifI/Ji6DnbrBku1kwo3fPjNrxyqsBAfe573T4gML9AVpX2/CaJgc41ID9liJdNV8fChgVEckeVb1A==}
+  /ant-design-vue@4.1.2(vue@3.3.4):
+    resolution: {integrity: sha512-ynFkDJLlHgumeK6Hr1UZ7PvQNZ1uBcri/pmejBdS3kRqHeA5VRsxneYDwa8YxA+uYB5YfT2jpYsSHsiMiCjRGg==}
+    engines: {node: '>=12.22.0'}
     peerDependencies:
-      '@vue/compiler-sfc': '>=3.1.0'
-      vue: '>=3.1.0'
+      vue: '>=3.2.0'
     dependencies:
       '@ant-design/colors': 6.0.0
-      '@ant-design/icons-vue': 6.0.1(vue@3.3.4)
+      '@ant-design/icons-vue': 7.0.1(vue@3.3.4)
       '@babel/runtime': 7.22.11
+      '@ctrl/tinycolor': 3.6.1
+      '@emotion/hash': 0.9.1
+      '@emotion/unitless': 0.8.1
       '@simonwep/pickr': 1.8.2
-      '@vue/compiler-sfc': 3.4.13
       array-tree-filter: 2.1.0
       async-validator: 4.2.5
+      csstype: 3.1.2
       dayjs: 1.11.9
       dom-align: 1.12.4
       dom-scroll-into-view: 2.0.1
@@ -428,6 +449,8 @@ packages:
       resize-observer-polyfill: 1.5.1
       scroll-into-view-if-needed: 2.2.31
       shallow-equal: 1.2.1
+      stylis: 4.3.1
+      throttle-debounce: 5.0.0
       vue: registry.npmmirror.com/vue@3.3.4
       vue-types: 3.0.2(vue@3.3.4)
       warning: 4.0.3
@@ -515,6 +538,10 @@ packages:
   /core-js@3.35.1:
     resolution: {integrity: sha512-IgdsbxNyMskrTFxa9lWHyMwAJU5gXOPP+1yO+K59d50VLVAIDAbs7gIv705KzALModfK3ZrSZTPNpC0PQgIZuw==}
     requiresBuild: true
+    dev: true
+
+  /csstype@3.1.2:
+    resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
     dev: true
 
   /dayjs@1.11.9:
@@ -913,6 +940,15 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /stylis@4.3.1:
+    resolution: {integrity: sha512-EQepAV+wMsIaGVGX1RECzgrcqRRU/0sYOHkeLsZ3fzHaHXZy4DaOOX0vOlGQdlsjkh3mFHAIlVimpwAs4dslyQ==}
+    dev: true
+
+  /throttle-debounce@5.0.0:
+    resolution: {integrity: sha512-2iQTSgkkc1Zyk0MeVrt/3BvuOXYPl/R8Z0U2xxo9rjwNciaHDG3R+Lm6dh4EeUci49DanvBnuqI6jshoQQRGEg==}
+    engines: {node: '>=12.22'}
     dev: true
 
   /to-fast-properties@2.0.0:

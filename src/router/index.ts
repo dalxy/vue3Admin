@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Layout from "@/layout/index.vue";
+import { interfaceRoutes } from "./interface";
 
 // 看做是异步路由
 export const asyncRoutes: Array<RouteRecordRaw> = [
@@ -180,7 +181,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
   }
 ];
 
-export const routes = [...constantRoutes, ...asyncRoutes];
+export const routes = [...constantRoutes, ...interfaceRoutes, ...asyncRoutes];
 
 export default createRouter({
   history: createWebHistory(),

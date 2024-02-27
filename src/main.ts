@@ -19,6 +19,8 @@ import { registerMicroApps, start } from "qiankun";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
+import Antd from "ant-design-vue";
+import "ant-design-vue/dist/reset.css";
 
 import Avatar from "@/components/Avatar/index.vue";
 import Breadcrumb from "@/components/Breadcrumb/index.vue";
@@ -58,6 +60,7 @@ start({
 });
 createApp(App)
   .use(ElementPlus)
+  .use(Antd)
   // 安装element-plus插件
   .use(installElementPlus)
   .use(router)

@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import axios from "axios";
 axios
-  .post("https://152.136.150.189/reactAdmin/authorityList", { a:1})
+  .post("https://152.136.150.189/reactAdmin/authorityList", { a: 1 })
   .then((res) => {
     console.log(res);
   })
