@@ -7,8 +7,11 @@
   />
 </template>
 <script lang="ts" setup>
+// 预设可选颜色
+import { useSettingsStore } from "@/stores/settings";
 import { ref } from "vue";
 
+const store = useSettingsStore();
 const theme = ref("");
 const themeColor = [
   "#409EFF",
@@ -20,4 +23,39 @@ const themeColor = [
   "#6959CD",
   "#f5222d"
 ];
+// store中获取默认主题色
+const defaultTheme = computed(() => store.settings.theme);
+// 监听默认样式
+watch(
+  defaultTheme,
+  (val) => {
+    theme.value = val;
+  },
+  { immediate: true }
+);
+// 根据theme选择变化 重新生成主题
+watch(theme, (value) => {
+  // 同步store
+  store.changeSetting({ key: "theme", value });
+  // 稍后这里生成主题
+  // generateTime(value);
+});
 </script>
+<style lang="scss">
+.theme-picker {
+  height: 26px !important;
+  margin-right: 8px;
+  .el-color-picker__trigger {
+    height: 26px !important;
+    width: 26px !important;
+    padding: 2px;
+  }
+}
+.theme-message,
+.theme-picker-dropdown {
+  z-index: 9999 !important;
+}
+.theme-picker-dropdown .el-color-dropdown__link-btn {
+  display: none;
+}
+</style>

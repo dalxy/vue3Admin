@@ -71,5 +71,10 @@ const openShowSetting = () => {
       align-items: center;
     }
   }
+  .setting {
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+  }
 }
 </style>

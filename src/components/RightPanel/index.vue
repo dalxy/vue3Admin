@@ -14,7 +14,7 @@
     </el-drawer>
   </div>
 </template>
-<script setup lange="ts">
+<script setup lang="ts">
 defineProps({
   modelValue: {
     type: Boolean,
@@ -22,6 +22,9 @@ defineProps({
   },
   direction: {
     type: String,
+    validator(val: string) {
+      return ["rtl", "ltr", "ttb", "btt"].includes(val);
+    },
     default: "rtl"
   },
   showClose: {
