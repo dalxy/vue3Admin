@@ -6,7 +6,7 @@
     :default-active="activeMenu"
     :background-color="scssVariables.menuBg"
     :text-color="scssVariables.menuText"
-    :active-text-color="scssVariables.menuActiveText"
+    :active-text-color="themeColor"
     :collapse="sidebar.opened"
     :collapse-transition="true"
   >
@@ -27,6 +27,7 @@ import { routes } from "@/router";
 
 import { useAppStore } from "@/stores/app";
 import { storeToRefs } from "pinia";
+import { useSettingsStore } from "@/stores/settings";
 const store = useAppStore();
 const { sidebar } = storeToRefs(store);
 
@@ -34,6 +35,9 @@ const { sidebar } = storeToRefs(store);
 const menuRoutes = computed(() => routes);
 // console.log(menuRoutes);
 const route = useRoute();
+// 获取主题色
+const settingStore = useSettingsStore();
+const themeColor = computed(() => settingStore.settings.theme);
 const activeMenu = computed(() => {
   const { path, meta } = route;
   if (meta.activeMenu) {

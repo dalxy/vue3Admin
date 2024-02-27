@@ -38,7 +38,7 @@ watch(theme, (value) => {
   // 同步store
   store.changeSetting({ key: "theme", value });
   // 稍后这里生成主题
-  // generateTime(value);
+  // generateTheme(value);
 });
 </script>
 <style lang="scss">

@@ -9,6 +9,10 @@
           v-for="(tag, index) in visitedViews"
           :key="index"
           :to="{ path: tag.path, query: tag.query }"
+          :style="{
+            background: isActive(tag) ? themeColor : '',
+            borderColor: isActive(tag) ? themeColor : ''
+          }"
         >
           <!-- <span>{{ tag.meta.title }}</span> -->
           <el-dropdown
@@ -49,6 +53,8 @@ import { storeToRefs } from "pinia";
 import { RouteRecordRaw } from "vue-router";
 import path from "path-browserify";
 import { routes } from "@/router";
+import { theme } from "ant-design-vue";
+import { useSettingsStore } from "@/stores/settings";
 
 const store = useTagsView();
 const { visitedViews } = storeToRefs(store);
@@ -62,6 +68,9 @@ const addTags = () => {
     store.addView(route);
   }
 };
+const settingStore = useSettingsStore();
+const themeColor = computed(() => settingStore.settings.theme);
+
 watch(
   () => route.path,
   () => {
