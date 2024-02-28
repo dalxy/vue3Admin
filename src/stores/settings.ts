@@ -8,7 +8,8 @@ export const useSettingsStore = defineStore(
     // originalTheme是现在生效的主题, 刷新需要重新生成无需存放到sessionStorage中
     const settings = reactive({
       theme: variables.theme,
-      originalTheme: ""
+      originalTheme: "",
+      tagsView: true
     });
     type ISettings = typeof settings;
     type ValueOf<T> = T[keyof T];
@@ -30,7 +31,7 @@ export const useSettingsStore = defineStore(
   {
     persist: {
       storage: window.sessionStorage,
-      paths: ["settings.theme"]
+      paths: ["settings.theme", "settings.tagsView"]
     }
   }
 );

@@ -53,7 +53,6 @@ import { storeToRefs } from "pinia";
 import { RouteRecordRaw } from "vue-router";
 import path from "path-browserify";
 import { routes } from "@/router";
-import { theme } from "ant-design-vue";
 import { useSettingsStore } from "@/stores/settings";
 
 const store = useTagsView();

@@ -8,7 +8,7 @@
 </template>
 <style lang="scss" scoped>
 .drawer-container {
-  padding: 24px;
+  // padding: 24px;
   font-size: 14px;
   line-height: 1.5;
   word-wrap: break-word;
