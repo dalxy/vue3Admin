@@ -22,6 +22,7 @@ const sayhi = () => {
   // alert("sayhi");
   proxy?.$message.success("success");
 };
+// console.log(bbbbb)
 </script>
 <style lang="scss">
 .custom-class {
