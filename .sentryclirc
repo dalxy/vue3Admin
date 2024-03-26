@@ -1,0 +1,7 @@
+[defaults]
+url=http://localhost:9000/
+org=dy
+project=admin
+
+[auth]
+token=523ca6eb9c108a20e3c81b6ab69119b6e569ece8ff8835f71cfe07acb446ca54
