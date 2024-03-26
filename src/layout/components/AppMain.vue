@@ -20,9 +20,9 @@ const { cachedViews } = storeToRefs(store);
 const includes = computed(() => cachedViews.value as string[]);
 </script>
 <style scoped>
-.app-main {
+/* .app-main {
   min-height: calc(100vh-50px);
-}
+} */
 .fade-transform-enter-active,
 .fade-transform-leave-active {
   transform: all 0.5s;

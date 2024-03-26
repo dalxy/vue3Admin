@@ -1,5 +1,6 @@
 <template>
   <!-- <h4 @click="isCollapse = !isCollapse">展收测试</h4> -->
+  <logo v-if="showLogo" :collapse="isCollapse" />
   <el-menu
     class="sidebar-container-menu"
     mode="vertical"
@@ -45,6 +46,7 @@ const activeMenu = computed(() => {
   }
   return path;
 });
-// const isCollapse = ref(false);
+const showLogo = computed(() => settingStore.settings.showSidebarLogo);
+const isCollapse = computed(() => store.sidebar.opened);
 </script>
 <style></style>

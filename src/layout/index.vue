@@ -6,10 +6,7 @@
     <div class="main-container">
       <div class="header">
         <navbar @showSetting="openSetting" />
-        <!-- <tags-view v-if="showTagsView" /> -->
-        <div class="tags-view">
-          <TagsView />
-        </div>
+        <tags-view v-if="showTagsView" />
       </div>
       <app-main />
     </div>
@@ -31,7 +28,9 @@ import { useSettingsStore } from "@/stores/settings";
 
 const settingsStore = useSettingsStore();
 const showTagsView = computed(() => settingsStore.settings.tagsView);
-const otherHeight = computed(() => (showSetting.value ? 48 : 50) + "px");
+const otherHeight = computed(
+  () => (showSetting.value ? 48 + 35 : 50 + 35) + "px"
+);
 const showSetting = ref(false);
 const openSetting = () => {
   // 控制right-panel弹出
