@@ -166,6 +166,11 @@ const constantRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: "/login",
+    name: "Login",
+    component: () => import("@/views/login.vue")
+  },
+  {
     path: "/:pathMatch(.*)*",
     redirect: "/404",
     meta: {

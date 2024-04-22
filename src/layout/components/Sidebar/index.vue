@@ -1,5 +1,4 @@
 <template>
-  <!-- <h4 @click="isCollapse = !isCollapse">展收测试</h4> -->
   <logo v-if="showLogo" :collapse="isCollapse" />
   <scroll-panel>
     <el-menu
@@ -18,7 +17,6 @@
         :item="route"
         :base-path="route.path"
       />
-      <!-- {{ route.path }} -->
     </el-menu>
   </scroll-panel>
 </template>
@@ -50,8 +48,7 @@ const activeMenu = computed(() => {
 });
 const showLogo = computed(() => settingStore.settings.showSidebarLogo);
 const isCollapse = computed(() => store.sidebar.opened);
-const logoHeight = computed(() => (showLogo.value ? 50 : 0) + "px")
-
+const logoHeight = computed(() => (showLogo.value ? 50 : 0) + "px");
 </script>
 <style lang="scss" scoped>
 .sidebar-wrapper {
