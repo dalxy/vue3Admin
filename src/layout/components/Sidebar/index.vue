@@ -1,24 +1,26 @@
 <template>
   <!-- <h4 @click="isCollapse = !isCollapse">展收测试</h4> -->
   <logo v-if="showLogo" :collapse="isCollapse" />
-  <el-menu
-    class="sidebar-container-menu"
-    mode="vertical"
-    :default-active="activeMenu"
-    :background-color="scssVariables.menuBg"
-    :text-color="scssVariables.menuText"
-    :active-text-color="themeColor"
-    :collapse="sidebar.opened"
-    :collapse-transition="true"
-  >
-    <sidebar-item
-      v-for="route in menuRoutes"
-      :key="route.path"
-      :item="route"
-      :base-path="route.path"
-    />
-    <!-- {{ route.path }} -->
-  </el-menu>
+  <scroll-panel>
+    <el-menu
+      class="sidebar-container-menu"
+      mode="vertical"
+      :default-active="activeMenu"
+      :background-color="scssVariables.menuBg"
+      :text-color="scssVariables.menuText"
+      :active-text-color="themeColor"
+      :collapse="sidebar.opened"
+      :collapse-transition="true"
+    >
+      <sidebar-item
+        v-for="route in menuRoutes"
+        :key="route.path"
+        :item="route"
+        :base-path="route.path"
+      />
+      <!-- {{ route.path }} -->
+    </el-menu>
+  </scroll-panel>
 </template>
 <script lang="ts" setup>
 import scssVariables from "@/styles/variables.module.scss";
@@ -48,5 +50,13 @@ const activeMenu = computed(() => {
 });
 const showLogo = computed(() => settingStore.settings.showSidebarLogo);
 const isCollapse = computed(() => store.sidebar.opened);
+const logoHeight = computed(() => (showLogo.value ? 50 : 0) + "px")
+
 </script>
-<style></style>
+<style lang="scss" scoped>
+.sidebar-wrapper {
+  .sidebar-container-menu {
+    height: calc(100vh - v-bind(logoHeight));
+  }
+}
+</style>
