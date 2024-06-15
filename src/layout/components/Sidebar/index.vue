@@ -1,24 +1,26 @@
 <template>
-  <logo v-if="showLogo" :collapse="isCollapse" />
-  <scroll-panel>
-    <el-menu
-      class="sidebar-container-menu"
-      mode="vertical"
-      :default-active="activeMenu"
-      :background-color="scssVariables.menuBg"
-      :text-color="scssVariables.menuText"
-      :active-text-color="themeColor"
-      :collapse="sidebar.opened"
-      :collapse-transition="true"
-    >
-      <sidebar-item
-        v-for="route in menuRoutes"
-        :key="route.path"
-        :item="route"
-        :base-path="route.path"
-      />
-    </el-menu>
-  </scroll-panel>
+  <div class="sidebar-wrapper">
+    <logo v-if="showLogo" :collapse="isCollapse" />
+    <scroll-panel>
+      <el-menu
+        class="sidebar-container-menu"
+        mode="vertical"
+        :default-active="activeMenu"
+        :background-color="scssVariables.menuBg"
+        :text-color="scssVariables.menuText"
+        :active-text-color="themeColor"
+        :collapse="sidebar.opened"
+        :collapse-transition="true"
+      >
+        <sidebar-item
+          v-for="route in menuRoutes"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        />
+      </el-menu>
+    </scroll-panel>
+  </div>
 </template>
 <script lang="ts" setup>
 import scssVariables from "@/styles/variables.module.scss";

@@ -32,26 +32,27 @@ const shareComponent = {
   Hambuger
 };
 
-import * as Sentry from "@sentry/browser";
+// sentry接入，暂时取消
+// import * as Sentry from "@sentry/browser";
 
-Sentry.init({
-  dsn: "http://80311d60ff42a3474a44a04c03caaf1a@100.116.239.52:9000/5",
-  integrations: [
-    Sentry.browserTracingIntegration(),
-    Sentry.replayIntegration({
-      maskAllText: false,
-      blockAllMedia: false
-    })
-  ],
-  release: "pro@1.0.1",
-  // Performance Monitoring
-  tracesSampleRate: 1.0, //  Capture 100% of the transactions
-  // Set 'tracePropagationTargets' to control for which URLs distributed tracing should be enabled
-  tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
-  // Session Replay
-  replaysSessionSampleRate: 0.1, // This sets the sample rate at 10%. You may want to change it to 100% while in development and then sample at a lower rate in production.
-  replaysOnErrorSampleRate: 1.0 // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
-});
+// Sentry.init({
+//   dsn: "http://80311d60ff42a3474a44a04c03caaf1a@100.116.239.52:9000/5",
+//   integrations: [
+//     Sentry.browserTracingIntegration(),
+//     Sentry.replayIntegration({
+//       maskAllText: false,
+//       blockAllMedia: false
+//     })
+//   ],
+//   release: "pro@1.0.1",
+//   // Performance Monitoring
+//   tracesSampleRate: 1.0, //  Capture 100% of the transactions
+//   // Set 'tracePropagationTargets' to control for which URLs distributed tracing should be enabled
+//   tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
+//   // Session Replay
+//   replaysSessionSampleRate: 0.1, // This sets the sample rate at 10%. You may want to change it to 100% while in development and then sample at a lower rate in production.
+//   replaysOnErrorSampleRate: 1.0 // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
+// });
 
 const apps = [
   {

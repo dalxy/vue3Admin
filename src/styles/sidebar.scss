@@ -4,24 +4,24 @@
     height: 100%;
     background-color: $menuBg;
     // menu未收起时样式
-    &-menu:not(.el-menu--collapse){
-      width: $sideBarWidth; 
+    &-menu:not(.el-menu--collapse) {
+      width: $sideBarWidth;
     }
-    .el-menu{
+    .el-menu {
       border: none;
     }
     // 菜单收起时的样式调整
-    .el-menu--collapse{
+    .el-menu--collapse {
       // 隐藏submenu title
-      .submenu-title{
+      .submenu-title {
         display: none;
       }
     }
-    .el-submenu{
-      .el-menu{
-        .el-menu-item{
+    .el-submenu {
+      .el-menu {
+        .el-menu-item {
           background-color: $subMenuBg !important;
-          &:hover{
+          &:hover {
             background-color: $subMenuHover !important;
           }
         }

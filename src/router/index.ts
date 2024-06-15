@@ -109,6 +109,27 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: "/treeSelect",
+    component: Layout,
+    redirect: "/treeSelect/index",
+    children: [
+      {
+        path: "index",
+        name: "TreeSelect",
+        component: () =>
+          import(
+            /* webpackChunkName: "treeSelect" */ "@/views/treeSelect/index.vue"
+          ),
+        meta: {
+          title: "树选择",
+          icon: "guide"
+          // treeSelect/documentation/index高亮显示
+          // activeMenu: "/documentation/index"
+        }
+      }
+    ]
+  },
+  {
     // 外链路由
     path: "/external-link",
     component: Layout,
@@ -168,7 +189,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: "/login",
     name: "Login",
-    component: () => import("@/views/login.vue")
+    component: () => import("@/views/login/index.vue")
   },
   {
     path: "/:pathMatch(.*)*",
