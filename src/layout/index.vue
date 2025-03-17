@@ -62,7 +62,7 @@ const settingsPanelWidth = computed(() => variables.settingPanelWidth);
       /* main = 100% - nabvar + tagsview */
       // min-height: calc(100vh - 85px); //运算符号两边必须有空格
       min-height: calc(100vh - v-bind(otherHeight));
-      background: red;
+      // background: red;
     }
   }
   .right-panel {

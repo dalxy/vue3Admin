@@ -130,6 +130,27 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: "/tiptapEditor",
+    component: Layout,
+    redirect: "/tiptapEditor/index",
+    children: [
+      {
+        path: "index",
+        name: "TiptapEditor",
+        component: () =>
+          import(
+            /* webpackChunkName: "tiptapEditor" */ "@/views/tiptapEditor/index.vue"
+          ),
+        meta: {
+          title: "富文本编辑器",
+          icon: "guide"
+          // tiptapEditor/documentation/index高亮显示
+          // activeMenu: "/documentation/index"
+        }
+      }
+    ]
+  },
+  {
     // 外链路由
     path: "/external-link",
     component: Layout,
