@@ -1,6 +1,9 @@
 <template>
   <div class="phone-input-container">
     <el-select v-model="selectedCountry" filterable class="country-select" placeholder="选择国家">
+      <template #prefix>
+        <span class="flag-icon" :style="getFlagStyle(selectedCountry)"></span>
+      </template>
       <el-option
         v-for="country in countries"
         :key="country.code"
@@ -149,7 +152,7 @@ defineExpose({
 }
 
 .country-select {
-  width: 60px;
+  width: 200px;
   flex-shrink: 0;
 }
 
@@ -213,5 +216,14 @@ defineExpose({
 
 :deep(.el-input .el-input__wrapper) {
   padding-right: 8px;
+}
+
+:deep(.el-select .el-input__prefix) {
+  margin-left: 8px;
+}
+
+:deep(.el-input__prefix-inner) {
+  display: flex;
+  align-items: center;
 }
 </style> 
