@@ -151,6 +151,27 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: "/echarts",
+    component: Layout,
+    redirect: "/echarts/index",
+    children: [
+      {
+        path: "index",
+        name: "Echarts",
+        component: () =>
+          import(
+            /* webpackChunkName: "tiptapEditor" */ "@/views/echarts/index.vue"
+          ),
+        meta: {
+          title: "国际手机号注册",
+          icon: "guide"
+          // tiptapEditor/documentation/index高亮显示
+          // activeMenu: "/documentation/index"
+        }
+      }
+    ]
+  },
+  {
     // 外链路由
     path: "/external-link",
     component: Layout,
