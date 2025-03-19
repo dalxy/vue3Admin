@@ -12,8 +12,7 @@
       >
         <span class="country-option">
           <span class="flag-icon" :style="getFlagStyle(country.code)"></span>
-          <span>{{ country.label }}</span>
-          <span class="country-code">+{{ country.phoneCode }}</span>
+          <span>{{ country.name }} ({{ country.nameEn }}) +{{ country.phoneCode }}</span>
         </span>
       </el-option>
     </el-select>
@@ -24,12 +23,7 @@
       placeholder="手机"
       @input="handlePhoneInput"
     >
-      <template #prepend>
-        <span class="selected-flag">
-          <span class="flag-icon" :style="getFlagStyle(selectedCountry)"></span>
-          +{{ getSelectedCountryCode }}
-        </span>
-      </template>
+      <template #prepend>+{{ getSelectedCountryCode }}</template>
     </el-input>
   </div>
 </template>
@@ -180,15 +174,9 @@ defineExpose({
   margin-left: auto;
 }
 
-.selected-flag {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
 :deep(.el-input-group__prepend) {
   padding: 0 8px;
-  min-width: 80px;
+  min-width: 50px;
 }
 
 :deep(.el-select .el-input.is-focus .el-input__wrapper) {
@@ -203,6 +191,10 @@ defineExpose({
 
 :deep(.el-input__wrapper) {
   padding-left: 0;
+}
+
+:deep(.el-input__inner) {
+  padding-left: 4px;
 }
 
 :deep(.el-select__popper) {
