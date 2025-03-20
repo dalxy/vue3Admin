@@ -37,16 +37,16 @@ const submittedData = ref<{
   phone: string;
 } | null>(null);
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   if (!phoneInputRef.value) return;
+
+  const valid = await phoneInputRef.value.validate();
+  if (!valid) {
+    return;
+  }
 
   const phone = phoneInputRef.value.phoneNumber;
   const country = phoneInputRef.value.selectedCountry;
-
-  if (!phone) {
-    ElMessage.warning("请输入手机号码");
-    return;
-  }
 
   // 获取国家代码
   const countryData = phoneInputRef.value.countries.find(
