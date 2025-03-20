@@ -29,12 +29,12 @@
 
       <el-form-item
         prop="phone"
-        :rules="[{ required: true, message: '请输入手机号', trigger: 'change' }]"
+        :rules="rules.phone"
       >
         <el-input
           v-model="form.phone"
           class="phone-number-input"
-          placeholder="手机"
+          :placeholder="selectedCountry === 'US' ? '234-567-8901' : '手机'"
           @input="handlePhoneInput"
         >
           <template #prepend>+{{ getSelectedCountryCode }}</template>
@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, defineEmits } from "vue";
+import { ref, computed, defineEmits, watch } from "vue";
 
 interface Country {
   name: string;
@@ -104,6 +104,53 @@ const handlePhoneInput = (value: string) => {
     phoneNumber: form.value.phone
   });
 };
+
+// 添加手机号验证规则
+const phoneValidationRules = {
+  US: /^[2-9]\d{9}$/,
+  CN: /^1[3-9]\d{9}$/,
+  TW: /^09\d{8}$/
+};
+
+// 验证手机号的方法
+const validatePhone = (rule: any, value: string, callback: Function) => {
+  if (!value) {
+    callback(new Error('请输入手机号'));
+    return;
+  }
+
+  const pattern = phoneValidationRules[selectedCountry.value as keyof typeof phoneValidationRules];
+  if (!pattern) {
+    callback();
+    return;
+  }
+
+  if (!pattern.test(value)) {
+    switch (selectedCountry.value) {
+      case 'US':
+        callback(new Error('请输入正确的美国手机号，格式如: 234-567-8901'));
+        break;
+      case 'CN':
+        callback(new Error('请输入正确的中国手机号，需要11位数字'));
+        break;
+      case 'TW':
+        callback(new Error('请输入正确的台湾手机号，格式如: 0912345678'));
+        break;
+      default:
+        callback(new Error('请输入正确的手机号'));
+    }
+    return;
+  }
+  callback();
+};
+
+// 动态验证规则
+const rules = computed(() => ({
+  phone: [
+    { required: true, message: '请输入手机号', trigger: 'change' },
+    { validator: validatePhone, trigger: 'change' }
+  ]
+}));
 
 const validate = () => {
   return new Promise((resolve, reject) => {
