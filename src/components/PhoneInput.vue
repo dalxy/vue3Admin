@@ -18,19 +18,12 @@
         >
           <span class="country-option">
             <span class="flag-icon" :style="getFlagStyle(country.code)"></span>
-            <span
-              >{{ country.name }} ({{ country.nameEn }}) +{{
-                country.phoneCode
-              }}</span
-            >
+            <span>{{ country.name }} ({{ country.nameEn }}) +{{ country.phoneCode }}</span>
           </span>
         </el-option>
       </el-select>
 
-      <el-form-item
-        prop="phone"
-        :rules="rules.phone"
-      >
+      <el-form-item prop="phone" :rules="rules.phone">
         <el-input
           v-model="form.phone"
           class="phone-number-input"
@@ -55,6 +48,14 @@ interface Country {
   label: string;
   spritePosition: string;
 }
+
+const props = defineProps<{
+  modelValue?: string;
+}>();
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void;
+}>();
 
 const countries: Country[] = [
   {
@@ -94,15 +95,9 @@ const getSelectedCountryCode = computed(() => {
   return country ? country.phoneCode : "";
 });
 
-const emit = defineEmits(["update:modelValue"]);
-
 const handlePhoneInput = (value: string) => {
-  // 只允许输入数字
-  form.value.phone = value.replace(/[^\d]/g, "");
-  emit("update:modelValue", {
-    countryCode: selectedCountry.value,
-    phoneNumber: form.value.phone
-  });
+  form.value.phone = value;
+  emit('update:modelValue', value);
 };
 
 // 添加手机号验证规则
@@ -178,6 +173,13 @@ const resetFields = () => {
 // 监听国家变化
 watch(selectedCountry, () => {
   resetFields();
+});
+
+// 监听外部值变化
+watch(() => props.modelValue, (newValue) => {
+  if (newValue && newValue !== form.value.phone) {
+    form.value.phone = newValue;
+  }
 });
 
 // 暴露给父组件的值

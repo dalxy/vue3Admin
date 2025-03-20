@@ -7,10 +7,14 @@
         </div>
       </template>
 
-      <PhoneInput ref="phoneInputRef" />
+      <PhoneInput 
+        ref="phoneInputRef" 
+        v-model="phoneData"
+      />
 
       <div class="submit-section">
         <el-button type="primary" @click="handleSubmit">提交</el-button>
+        <el-button @click="fillPhoneNumber">回填手机号</el-button>
       </div>
 
       <div v-if="submittedData" class="result-section">
@@ -31,6 +35,7 @@ import PhoneInput from "@/components/PhoneInput.vue";
 import { ElMessage } from "element-plus";
 
 const phoneInputRef = ref();
+const phoneData = ref('');
 const submittedData = ref<{
   country: string;
   countryCode: string;
@@ -61,6 +66,13 @@ const handleSubmit = async () => {
   };
 
   ElMessage.success("提交成功");
+};
+
+// 回填手机号
+const fillPhoneNumber = () => {
+  if (phoneInputRef.value) {
+    phoneData.value = '1324567890';
+  }
 };
 </script>
 
