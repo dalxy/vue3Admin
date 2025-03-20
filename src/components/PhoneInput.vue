@@ -170,13 +170,24 @@ const getFlagStyle = (countryCode: string) => {
   };
 };
 
+// 重置表单字段和验证
+const resetFields = () => {
+  formRef.value?.resetFields();
+};
+
+// 监听国家变化
+watch(selectedCountry, () => {
+  resetFields();
+});
+
 // 暴露给父组件的值
 defineExpose({
   phoneNumber: computed(() => form.value.phone),
   selectedCountry,
   countries,
   validate,
-  formRef
+  formRef,
+  resetFields
 });
 </script>
 
