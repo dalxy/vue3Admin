@@ -62,24 +62,24 @@ const countries: Country[] = [
     nameEn: "China",
     code: "CN",
     phoneCode: "86",
-    label: "中国 (China) +86",
-    spritePosition: "0 -2486px"
+    label: "+86",
+    spritePosition: "0 -825px"
   },
   {
     name: "美国",
     nameEn: "United States",
     code: "US",
     phoneCode: "1",
-    label: "美国 (United States) +1",
-    spritePosition: "0 -1364px"
+    label: "+1",
+    spritePosition: "0 -44px"
   },
   {
     name: "台湾",
     nameEn: "Taiwan",
     code: "TW",
     phoneCode: "886",
-    label: "台湾 (Taiwan) +886",
-    spritePosition: "0 -2156px"
+    label: "+886",
+    spritePosition: "0 -506px"
   }
 ];
 
